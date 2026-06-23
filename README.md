@@ -2,7 +2,7 @@
 
 Ingyenes, **böngészőben futó** QR kód generátor. Nincs szerver, nincs feltöltés – minden adat a saját gépeden marad. Tiszta HTML/CSS/JS, build-lépés nélkül; ingyen kitehető **GitHub Pages**-re.
 
-👉 **Élő demó:** _(GitHub Pages link ide kerül a publikálás után)_
+👉 **Élő demó:** <https://tardoscode.github.io/qr-generator/>
 
 ## Mit tud
 

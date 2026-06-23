@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QR Stúdió – ingyenes QR kód generátor</title>
+  <meta name="description" content="Ingyenes, böngészőben futó QR kód generátor: URL, szöveg, e-mail, telefon, SMS, WiFi, névjegy (vCard), helyszín, esemény és WhatsApp. Színek, logó, letöltés PNG / SVG / JPEG formátumban." />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="theme-color" content="#6d5efc" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="QR Stúdió – ingyenes QR kód generátor" />
+  <meta property="og:description" content="Generálj QR kódot URL-hez, WiFi-hez, névjegyhez és sok máshoz. Színezhető, logózható, letölthető." />
+  <meta property="og:type" content="website" />
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%236d5efc'/%3E%3Cg fill='white'%3E%3Crect x='18' y='18' width='22' height='22' rx='4'/%3E%3Crect x='60' y='18' width='22' height='22' rx='4'/%3E%3Crect x='18' y='60' width='22' height='22' rx='4'/%3E%3Crect x='60' y='60' width='10' height='10'/%3E%3Crect x='72' y='72' width='10' height='10'/%3E%3C/g%3E%3C/svg%3E" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#generator">Ugrás a generátorhoz</a>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="./">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 100 100" width="34" height="34">
+            <rect width="100" height="100" rx="22" fill="var(--accent)"/>
+            <g fill="#fff">
+              <rect x="18" y="18" width="22" height="22" rx="4"/>
+              <rect x="60" y="18" width="22" height="22" rx="4"/>
+              <rect x="18" y="60" width="22" height="22" rx="4"/>
+              <rect x="60" y="60" width="10" height="10"/>
+              <rect x="72" y="72" width="10" height="10"/>
+            </g>
+          </svg>
+        </span>
+        <span class="brand-text">QR&nbsp;Stúdió</span>
+      </a>
+      <div class="header-actions">
+        <button id="theme-toggle" class="icon-btn" type="button" title="Sötét / világos mód" aria-label="Téma váltása">
+          <span class="theme-icon">🌙</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="generator" class="wrap">
+    <section class="intro">
+      <h1>QR kód generátor</h1>
+      <p class="lead">Válassz típust, töltsd ki az adatokat, szabd testre, és töltsd le. Minden a böngésződben fut – semmi nem kerül ki szerverre.</p>
+    </section>
+
+    <div class="layout">
+      <!-- ====================== LEFT: DATA INPUT ====================== -->
+      <div class="panel panel-input">
+        <div class="type-tabs" role="tablist" aria-label="QR kód típusa" id="type-tabs">
+          <button class="type-tab is-active" role="tab" data-type="url" aria-selected="true"><span class="t-emoji">🔗</span>URL</button>
+          <button class="type-tab" role="tab" data-type="text"><span class="t-emoji">📝</span>Szöveg</button>
+          <button class="type-tab" role="tab" data-type="email"><span class="t-emoji">✉️</span>E-mail</button>
+          <button class="type-tab" role="tab" data-type="phone"><span class="t-emoji">📞</span>Telefon</button>
+          <button class="type-tab" role="tab" data-type="sms"><span class="t-emoji">💬</span>SMS</button>
+          <button class="type-tab" role="tab" data-type="wifi"><span class="t-emoji">📶</span>WiFi</button>
+          <button class="type-tab" role="tab" data-type="vcard"><span class="t-emoji">👤</span>Névjegy</button>
+          <button class="type-tab" role="tab" data-type="geo"><span class="t-emoji">📍</span>Helyszín</button>
+          <button class="type-tab" role="tab" data-type="event"><span class="t-emoji">📅</span>Esemény</button>
+          <button class="type-tab" role="tab" data-type="whatsapp"><span class="t-emoji">🟢</span>WhatsApp</button>
+        </div>
+
+        <div class="forms">
+          <!-- URL -->
+          <form class="qr-form is-active" data-form="url" autocomplete="on">
+            <label class="field">
+              <span>Webcím (URL)</span>
+              <input type="text" name="url" inputmode="url" placeholder="pl. szabitrans.hu vagy https://pelda.hu" value="https://" />
+            </label>
+            <p class="hint">A „https://” automatikusan bekerül, ha lemarad.</p>
+          </form>
+
+          <!-- TEXT -->
+          <form class="qr-form" data-form="text">
+            <label class="field">
+              <span>Szöveg</span>
+              <textarea name="text" rows="4" placeholder="Tetszőleges szöveg, ami a QR kódba kerül…"></textarea>
+            </label>
+          </form>
+
+          <!-- EMAIL -->
+          <form class="qr-form" data-form="email">
+            <label class="field">
+              <span>Címzett e-mail címe</span>
+              <input type="email" name="to" placeholder="valaki@pelda.hu" />
+            </label>
+            <label class="field">
+              <span>Tárgy</span>
+              <input type="text" name="subject" placeholder="Üzenet tárgya" />
+            </label>
+            <label class="field">
+              <span>Üzenet</span>
+              <textarea name="body" rows="3" placeholder="Az e-mail szövege…"></textarea>
+            </label>
+            <p class="hint">Beolvasáskor megnyílik a levelezőapp előre kitöltve.</p>
+          </form>
+
+          <!-- PHONE -->
+          <form class="qr-form" data-form="phone">
+            <label class="field">
+              <span>Telefonszám</span>
+              <input type="tel" name="phone" placeholder="+36 30 123 4567" />
+            </label>
+            <p class="hint">Beolvasáskor felajánlja a hívást.</p>
+          </form>
+
+          <!-- SMS -->
+          <form class="qr-form" data-form="sms">
+            <label class="field">
+              <span>Telefonszám</span>
+              <input type="tel" name="number" placeholder="+36 30 123 4567" />
+            </label>
+            <label class="field">
+              <span>Üzenet</span>
+              <textarea name="message" rows="3" placeholder="Előre megírt SMS szöveg…"></textarea>
+            </label>
+          </form>
+
+          <!-- WIFI -->
+          <form class="qr-form" data-form="wifi">
+            <label class="field">
+              <span>Hálózat neve (SSID)</span>
+              <input type="text" name="ssid" placeholder="Otthoni-WiFi" />
+            </label>
+            <label class="field">
+              <span>Jelszó</span>
+              <input type="text" name="password" placeholder="WiFi jelszó" />
+            </label>
+            <div class="field-row">
+              <label class="field">
+                <span>Titkosítás</span>
+                <select name="encryption">
+                  <option value="WPA" selected>WPA / WPA2 / WPA3</option>
+                  <option value="WEP">WEP</option>
+                  <option value="nopass">Nincs (nyílt)</option>
+                </select>
+              </label>
+              <label class="field checkbox-field">
+                <input type="checkbox" name="hidden" />
+                <span>Rejtett hálózat</span>
+              </label>
+            </div>
+            <p class="hint">A telefon beolvasás után felajánlja a csatlakozást.</p>
+          </form>
+
+          <!-- VCARD -->
+          <form class="qr-form" data-form="vcard">
+            <div class="field-row">
+              <label class="field"><span>Vezetéknév</span><input type="text" name="lastName" placeholder="Kovács" /></label>
+              <label class="field"><span>Keresztnév</span><input type="text" name="firstName" placeholder="Anna" /></label>
+            </div>
+            <label class="field"><span>Telefon</span><input type="tel" name="phone" placeholder="+36 30 123 4567" /></label>
+            <label class="field"><span>E-mail</span><input type="email" name="email" placeholder="anna@pelda.hu" /></label>
+            <div class="field-row">
+              <label class="field"><span>Cég</span><input type="text" name="org" placeholder="Cég Kft." /></label>
+              <label class="field"><span>Beosztás</span><input type="text" name="title" placeholder="Ügyvezető" /></label>
+            </div>
+            <label class="field"><span>Weboldal</span><input type="text" name="url" placeholder="https://pelda.hu" /></label>
+            <label class="field"><span>Cím</span><input type="text" name="address" placeholder="8360 Keszthely, Fő utca 1." /></label>
+            <label class="field"><span>Megjegyzés</span><textarea name="note" rows="2" placeholder="Tetszőleges megjegyzés…"></textarea></label>
+          </form>
+
+          <!-- GEO -->
+          <form class="qr-form" data-form="geo">
+            <div class="field-row">
+              <label class="field"><span>Szélesség (lat)</span><input type="text" name="lat" inputmode="decimal" placeholder="46.7667" /></label>
+              <label class="field"><span>Hosszúság (lng)</span><input type="text" name="lng" inputmode="decimal" placeholder="17.2406" /></label>
+            </div>
+            <p class="hint">Tipp: a Google Mapsen jobb klikk a helyre → a koordináták megjelennek.</p>
+          </form>
+
+          <!-- EVENT -->
+          <form class="qr-form" data-form="event">
+            <label class="field"><span>Esemény neve</span><input type="text" name="title" placeholder="Megbeszélés" /></label>
+            <label class="field"><span>Helyszín</span><input type="text" name="location" placeholder="Keszthely, iroda" /></label>
+            <div class="field-row">
+              <label class="field"><span>Kezdés</span><input type="datetime-local" name="start" /></label>
+              <label class="field"><span>Befejezés</span><input type="datetime-local" name="end" /></label>
+            </div>
+            <label class="field"><span>Leírás</span><textarea name="description" rows="2" placeholder="Részletek…"></textarea></label>
+          </form>
+
+          <!-- WHATSAPP -->
+          <form class="qr-form" data-form="whatsapp">
+            <label class="field">
+              <span>Telefonszám (országkóddal)</span>
+              <input type="tel" name="number" placeholder="36301234567" />
+            </label>
+            <label class="field">
+              <span>Előre megírt üzenet</span>
+              <textarea name="message" rows="3" placeholder="Szia! Érdeklődnék…"></textarea>
+            </label>
+            <p class="hint">Csak számjegyek, országkóddal, + és szóköz nélkül (pl. 36301234567).</p>
+          </form>
+        </div>
+      </div>
+
+      <!-- ====================== RIGHT: PREVIEW + STYLE ====================== -->
+      <div class="panel panel-output">
+        <div class="preview-card">
+          <div id="qr-canvas" class="qr-canvas" aria-label="Generált QR kód előnézet"></div>
+          <p id="qr-empty" class="qr-empty">Tölts ki egy mezőt a bal oldalon –<br />a QR kód azonnal megjelenik itt.</p>
+        </div>
+
+        <div class="download-row">
+          <button id="dl-png" class="btn btn-primary" type="button" disabled>PNG</button>
+          <button id="dl-svg" class="btn" type="button" disabled>SVG</button>
+          <button id="dl-jpg" class="btn" type="button" disabled>JPEG</button>
+          <button id="copy-png" class="btn btn-ghost" type="button" disabled>Másolás 📋</button>
+        </div>
+
+        <details class="style-panel" open>
+          <summary>Megjelenés testreszabása</summary>
+          <div class="style-body">
+            <div class="field-row">
+              <label class="field">
+                <span>Pötty színe</span>
+                <input type="color" name="dotColor" value="#222222" />
+              </label>
+              <label class="field">
+                <span>Háttér színe</span>
+                <input type="color" name="bgColor" value="#ffffff" />
+              </label>
+            </div>
+
+            <label class="field checkbox-field">
+              <input type="checkbox" name="transparent" />
+              <span>Átlátszó háttér</span>
+            </label>
+
+            <div class="field-row">
+              <label class="field">
+                <span>Pötty stílusa</span>
+                <select name="dotStyle">
+                  <option value="square">Négyzet</option>
+                  <option value="rounded" selected>Lekerekített</option>
+                  <option value="dots">Pöttyök</option>
+                  <option value="classy">Elegáns</option>
+                  <option value="classy-rounded">Elegáns + kerek</option>
+                  <option value="extra-rounded">Extra kerek</option>
+                </select>
+              </label>
+              <label class="field">
+                <span>Sarok stílusa</span>
+                <select name="cornerStyle">
+                  <option value="square">Négyzet</option>
+                  <option value="dot">Pötty</option>
+                  <option value="extra-rounded" selected>Extra kerek</option>
+                </select>
+              </label>
+            </div>
+
+            <div class="field-row">
+              <label class="field">
+                <span>Méret (px)</span>
+                <input type="number" name="size" min="120" max="2000" step="20" value="320" />
+              </label>
+              <label class="field">
+                <span>Hibajavítás</span>
+                <select name="ecc">
+                  <option value="L">L – alacsony</option>
+                  <option value="M">M – közepes</option>
+                  <option value="Q" selected>Q – magas</option>
+                  <option value="H">H – maximális</option>
+                </select>
+              </label>
+            </div>
+
+            <label class="field">
+              <span>Logó a közepére (opcionális)</span>
+              <input type="file" name="logo" accept="image/*" />
+            </label>
+            <button id="remove-logo" class="btn btn-ghost btn-small" type="button" hidden>Logó eltávolítása</button>
+            <p class="hint">Logó esetén érdemes „H” hibajavítást használni, hogy biztosan beolvasható maradjon.</p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>Készült böngészőben futó technológiával – az adataid nem hagyják el a géped.</p>
+      <p class="muted">QR Code® a DENSO WAVE Incorporated bejegyzett védjegye.</p>
+    </div>
+  </footer>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="assets/vendor/qr-code-styling.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
